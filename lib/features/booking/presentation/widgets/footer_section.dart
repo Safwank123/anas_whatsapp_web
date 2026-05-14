@@ -39,19 +39,19 @@ class FooterSection extends StatelessWidget {
 
   Widget _Brand(BuildContext context) {
     return Text(
-      'Aurelia Resort',
-      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: Colors.white,
-          ),
+      'Stay here',
+      style: Theme.of(
+        context,
+      ).textTheme.titleLarge?.copyWith(color: Colors.white),
     );
   }
 
   Widget _Contact(BuildContext context) {
     return Text(
-      'reservations@aureliaresort.com  |  +91 98765 43210',
+      'reservations@stayhere.com  |  +91 98765 43210',
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: Colors.white.withValues(alpha: 0.74),
-          ),
+        color: Colors.white.withValues(alpha: 0.74),
+      ),
     );
   }
 }

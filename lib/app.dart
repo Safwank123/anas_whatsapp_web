@@ -10,7 +10,7 @@ class ResortBookingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aurelia Resort',
+      title: 'stay here',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(GoogleFonts.playfairDisplayTextTheme()),
       home: const ResortBookingPage(),
