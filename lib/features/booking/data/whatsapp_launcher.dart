@@ -10,11 +10,15 @@ class WhatsAppLauncher {
   final String phoneNumber;
 
   Future<void> openBookingChat(BookingRequest request) async {
-    final uri = Uri.https('wa.me', '/$phoneNumber', {
-      'text': request.toWhatsAppMessage(),
-    });
+    final uri = Uri.parse(
+      'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(request.toWhatsAppMessage())}',
+    );
 
-    if (!await launchUrl(uri, webOnlyWindowName: '_blank')) {
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+      webOnlyWindowName: '_blank',
+    )) {
       throw Exception('Could not open WhatsApp');
     }
   }

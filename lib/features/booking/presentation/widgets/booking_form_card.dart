@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import '../../../../core/app_colors.dart';
@@ -95,17 +96,29 @@ class _BookingFormCardState extends State<BookingFormCard> {
       belowFive: _belowFive,
     );
 
+    var savedToFirebase = false;
+
     try {
       await _repository.save(request);
-      await _whatsApp.openBookingChat(request);
-      _showMessage('Booking enquiry saved. WhatsApp is opening now.');
+      savedToFirebase = true;
     } on FirebaseNotConfiguredException {
-      _showMessage(
-        'Firebase is not ready yet. WhatsApp is opening with your enquiry.',
-      );
+      savedToFirebase = false;
+    } on FirebaseException catch (error) {
+      debugPrint('Firestore booking save failed: ${error.code} ${error.message}');
+    } catch (error) {
+      debugPrint('Booking save failed: $error');
+    }
+
+    try {
       await _whatsApp.openBookingChat(request);
-    } catch (_) {
-      _showMessage('We could not complete the request. Please try again.');
+      _showMessage(
+        savedToFirebase
+            ? 'Booking enquiry saved. WhatsApp is opening now.'
+            : 'WhatsApp is opening. Firebase save was skipped or blocked.',
+      );
+    } catch (error) {
+      debugPrint('WhatsApp launch failed: $error');
+      _showMessage('Could not open WhatsApp. Please check popup permissions.');
     } finally {
       if (mounted) setState(() => _loading = false);
     }

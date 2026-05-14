@@ -42,8 +42,9 @@ class _HeroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
     final viewportHeight = MediaQuery.sizeOf(context).height;
-    final safeViewportHeight =
-        viewportHeight.isFinite && viewportHeight > 0 ? viewportHeight : 760.0;
+    final safeViewportHeight = viewportHeight.isFinite && viewportHeight > 0
+        ? viewportHeight
+        : 760.0;
     final heroHeight = isMobile
         ? math.max(safeViewportHeight, 980.0)
         : math.max(safeViewportHeight, 760.0);
@@ -119,11 +120,11 @@ class _TopBar extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         Text(
-          'Aurelia Resort',
+          'Stay Here',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Colors.white,
-                letterSpacing: 0,
-              ),
+            color: Colors.white,
+            letterSpacing: 0,
+          ),
         ),
         const Spacer(),
         if (!compact)
@@ -152,9 +153,9 @@ class _NavText extends StatelessWidget {
       child: Text(
         label,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Colors.white.withValues(alpha: 0.82),
-              fontWeight: FontWeight.w600,
-            ),
+          color: Colors.white.withValues(alpha: 0.82),
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
@@ -174,20 +175,19 @@ class _DesktopHeroContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Aurelia Resort',
-                style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      fontSize: 72,
-                      height: 1.02,
-                    ),
+                'Stay Here',
+                style: Theme.of(
+                  context,
+                ).textTheme.displayLarge?.copyWith(fontSize: 72, height: 1.02),
               ),
               const SizedBox(height: 22),
               Text(
                 'Private villas, quiet gardens, and golden-hour dining beside the coast.',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: Colors.white.withValues(alpha: 0.88),
-                      height: 1.5,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  color: Colors.white.withValues(alpha: 0.88),
+                  height: 1.5,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -209,19 +209,18 @@ class _MobileHeroContent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'Aurelia Resort',
-          style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: 48,
-                height: 1.05,
-              ),
+          'Stay Here',
+          style: Theme.of(
+            context,
+          ).textTheme.displayLarge?.copyWith(fontSize: 48, height: 1.05),
         ),
         const SizedBox(height: 14),
         Text(
           'Luxury stays wrapped in forest calm and coastal light.',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white.withValues(alpha: 0.88),
-                height: 1.45,
-              ),
+            color: Colors.white.withValues(alpha: 0.88),
+            height: 1.45,
+          ),
         ),
         const SizedBox(height: 24),
         const BookingFormCard(),
