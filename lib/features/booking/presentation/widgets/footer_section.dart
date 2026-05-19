@@ -39,7 +39,7 @@ class FooterSection extends StatelessWidget {
 
   Widget _Brand(BuildContext context) {
     return Text(
-      'Stay here',
+      'STAY HERE',
       style: Theme.of(
         context,
       ).textTheme.titleLarge?.copyWith(color: Colors.white),

@@ -116,11 +116,14 @@ class _TopBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.white.withValues(alpha: 0.28)),
           ),
-          child: const Icon(Icons.spa_outlined, color: AppColors.gold),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('assets/logo.jpeg'),
+          ),
         ),
         const SizedBox(width: 12),
         Text(
-          'Stay Here',
+          'STAY HERE',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
             color: Colors.white,
             letterSpacing: 0,
@@ -175,7 +178,7 @@ class _DesktopHeroContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Stay Here',
+                'STAY HERE',
                 style: Theme.of(
                   context,
                 ).textTheme.displayLarge?.copyWith(fontSize: 72, height: 1.02),
@@ -209,7 +212,7 @@ class _MobileHeroContent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'Stay Here',
+          'STAY HERE',
           style: Theme.of(
             context,
           ).textTheme.displayLarge?.copyWith(fontSize: 48, height: 1.05),

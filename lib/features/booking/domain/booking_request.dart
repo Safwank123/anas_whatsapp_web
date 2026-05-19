@@ -32,7 +32,7 @@ class BookingRequest {
     final nights = checkOut.difference(checkIn).inDays;
 
     return '''
-Hello Aurelia Resort,
+Hello STAY HERE Resort Bokking,
 
 I would like to make a booking enquiry.
 
